@@ -5,9 +5,9 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   // Retrieves a single user 
   Query: {
-    user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId })
-    },
+    // user: async (parent, { userId }) => {
+    //   return User.findOne({ _id: userId })
+    // },
 
     me: async (parent, args, context) => {
       if (context.user) {
@@ -59,7 +59,7 @@ const resolvers = {
     },
 
     // Maybe rewrite this later
-    deleteBook: async (parent, bookId, context) => {
+    removeBook: async (parent, bookId, context) => {
       if(context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id},
