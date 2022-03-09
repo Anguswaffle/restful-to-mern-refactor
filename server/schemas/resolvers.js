@@ -3,12 +3,8 @@ const { Book, User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
-  // Retrieves a single user 
   Query: {
-    // user: async (parent, { userId }) => {
-    //   return User.findOne({ _id: userId })
-    // },
-
+    // Retrieves the logged in user 
     me: async (parent, args, context) => {
       if (context.user) {
         return Profile.findOne({ _id: context.user._id });
