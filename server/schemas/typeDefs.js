@@ -34,7 +34,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     saveBook(book: BookInput): User
-    removeBook(bookId: String): User
+    removeBook(bookId: String!): User
   }
 
   # input type defines BookInput in the saveBook mutation
