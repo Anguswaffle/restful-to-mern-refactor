@@ -67,13 +67,11 @@ const SearchBooks = () => {
       return false;
     }
 
-    console.log('book', bookToSave)
     try {
       const { data } = await saveBook({
         variables: { savedBooks:  {bookToSave}  },
       });
 
-      console.log(data)
 
       if (data) setSavedBookIds([...savedBookIds, bookToSave.bookId])
     } catch (err) {
