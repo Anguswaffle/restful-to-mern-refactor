@@ -37,7 +37,6 @@ const resolvers = {
       return { token, user };
     },
 
-    // Maybe rewrite this later
     saveBook: async (parent, { book }, context) => {
       if (context.user) {
         const user = User.findOneAndUpdate(
@@ -55,7 +54,6 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    // Maybe rewrite this later
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
