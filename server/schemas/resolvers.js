@@ -12,14 +12,15 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!')
     }
   },
-
   Mutation: {
+    // Adds a new user to the db, returns an auth object
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
 
       return { token, user };
     },
+    // Logs in a user, returns an auth object
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -36,7 +37,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-
+    // Accepts a book object, identifies a user from the context, and stores the book in the user's savedBooks array
     saveBook: async (parent, { book }, context) => {
       if (context.user) {
         const user = User.findOneAndUpdate(
@@ -53,7 +54,7 @@ const resolvers = {
       // Throws error if there is no context
       throw new AuthenticationError('You need to be logged in!');
     },
-
+    // Accepts a bookId, identifies a user from the context, and removes the book from the user's savedBooks array
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
@@ -67,7 +68,6 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!')
     }
   }
-
 }
 
 module.exports = resolvers;
