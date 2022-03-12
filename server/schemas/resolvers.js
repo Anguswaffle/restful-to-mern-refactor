@@ -38,16 +38,17 @@ const resolvers = {
     },
 
     // Maybe rewrite this later
-    saveBook: async (parent, { body }, context) => {
+    saveBook: async (parent, { book }, context) => {
       if (context.user) {
-        return User.findOneAndUpdate(
+        const user = User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: body } },
+          { $addToSet: { savedBooks: book } },
           {
             new: true,
             runValidators: true
           }
         );
+        return user;
       }
 
       // Throws error if there is no context
@@ -55,7 +56,7 @@ const resolvers = {
     },
 
     // Maybe rewrite this later
-    removeBook: async (parent, bookId, context) => {
+    removeBook: async (parent, bookId , context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },

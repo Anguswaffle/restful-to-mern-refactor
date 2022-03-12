@@ -24,7 +24,7 @@ const typeDefs = gql`
     user: User
   }
 
-  # Context functionality allows us to check a JWT and decode its data, which means we can use a query that will always find and return teh logged in user's data
+  # Context functionality allows us to check a JWT and decode its data, which means we can use a query that will always find and return the logged in user's data
   type Query {
     me: User
   }
