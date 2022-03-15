@@ -4,7 +4,7 @@
 
   ## Description
 
-  While pretty ubiquitous, RESTful APIs have a number of constraints including excessive bandwidth. The MERN (MongoDB, Express.js ReactJS Node.js) was developed as a modern solution to this dilema. In order to become more familiar with MERN, I was given an existing code base that was built using a RESTful API and tasked with converting it to a MERN stack. Please check out this repository's [commit history](https://github.com/Anguswaffle/restful-to-mern-refactor/commits/main) to see how I went about doing that.
+  While pretty ubiquitous, RESTful APIs have a number of constraints including excessive bandwidth usage. The MERN (MongoDB, Express.js ReactJS Node.js) was developed as a modern solution to this dilema. In order to become more familiar with MERN, I was given an existing code base that was built using a RESTful API and tasked with converting it to a MERN stack. Please check out this repository's [commit history](https://github.com/Anguswaffle/restful-to-mern-refactor/commits/main) to see how I went about doing that.
 	
 [Heroku link for working app](https://evening-stream-76395.herokuapp.com/)
 
